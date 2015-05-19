@@ -8,7 +8,7 @@ $UserCredential= new-object -typename System.Management.Automation.PSCredential 
 $Session= New-PSSession -ComputerName $fqdn -Authentication Kerberos -Credential $UserCredential
 
 #Create output which logicmonitor understands for instance names
-invoke-command -session $Session -scriptblock {C:\java\jboss-5.1.0.GA\bin\twiddle get $object} | write-output
+invoke-command -session $Session -scriptblock {twiddle get $object} | write-output
 
 # Remove the PowerShell session
 Remove-PSSession $Session
